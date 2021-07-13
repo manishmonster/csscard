@@ -24,13 +24,17 @@ body {
 
 .card {
   color: var(--clr-neutral-100);
-  background-image: url(assets/img/card-bg.jpg);
+  background-image: url(../img/card-bg.jpg);
   background-size: cover;
   padding: 10rem 0 0;
   max-width: 35ch;
   border-radius: 0.5rem;
   overflow: hidden;
   transition: transform 500ms ease;
+}
+
+.card:hover{
+  transform: scale(1.01);
 }
 
 .card-content {
@@ -43,9 +47,19 @@ body {
   transition: transform 500ms ease;
 }
 
+.card:hover .card-content{
+  transform: translateY(0);
+  transition-delay: 500ms;
+}
+
 .card-content > *:not(.card-title){
   opacity: 0;
   transform: opacity 500ms linear;
+}
+
+.card:hover .card-content > *:not(.card-title){
+  opacity: 1;
+  transition-delay: 900ms;
 }
 
 .card-title {
@@ -53,7 +67,7 @@ body {
   width: max-content;
 }
 
-.card-title ::after {
+.card-title:after {
   content: "";
   position: absolute;
   height: 3px;
@@ -65,6 +79,11 @@ body {
   transform-origin: left;
   transition: transform 500ms ease;
 }
+
+.card:hover .card-title:after{
+  transform: scaleX(1);
+}
+
 .card-body{
   color: rgb(255 255 255 / 0.85);
 }
@@ -83,15 +102,6 @@ body {
 }
 
 /* Animation */
-.card:hover{
-  transform: scale(1.01);
-}
-.card:hover .card-content{
-  transform: translateY(0);
-}
-.card:hover .card-content > *:not(.card-title){
-  opacity: 1;
-}
-.card:hover .card-title ::after{
-  transform: scaleX(1);
-}
+
+
+
